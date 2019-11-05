@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}This is our block title{% endblock %}
+{% block body %}
+    {% for record in records %}
+        <h2>{{record.title}}</h2>
+        <p>Published: {{record.pub}}, author = {{record.author}}</p>
+    {% endfor %}
+{% endblock %}

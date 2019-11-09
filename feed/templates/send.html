@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Send link{% endblock %}
+{% block body %}
+{% if sent %}
+    <h1> Email successfully send</h1>
+
+{% else %}
+    <h1>Share {{ record.title }} </h1>
+    <form action="." method="post">
+        {{ form.as_p }}
+        {{ csrf_token }}
+        <input type="submit" value="Send e-mail">
+    </form>
+{% endif %}
+{% endblock %}

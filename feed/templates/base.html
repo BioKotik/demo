@@ -1,12 +1,43 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %}</title>
-    <link href="{% static "style.css" %}" rel="stylesheet">
+	<meta charset="utf-8" />
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
+	 <title>{% block title %}{% endblock %} </title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+    <link href="{% static "styles.css"  %}" rel="stylesheet">
 </head>
+
 <body>
-{% block body %}{% endblock %}
+
+<div class="wrapper">
+
+	<header class="header">
+		<p>Here it would be a header</p>
+    </header><!-- .header-->
+
+	<div class="middle">
+
+		<div class="container">
+			<main class="content">
+				{% block body %}{% endblock %}
+            </main><!-- .content -->
+		</div><!-- .container-->
+
+		<aside class="left-sidebar">
+			menu<br>
+            menu<br>
+        </aside><!-- .left-sidebar -->
+
+	</div><!-- .middle-->
+
+</div><!-- .wrapper -->
+
+<footer class="footer">
+    Maxim Belov for IT academy python dev course :) autumn 2019
+</footer>
+
 </body>
 </html>

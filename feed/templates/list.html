@@ -4,5 +4,7 @@
     {% for record in records %}
         <h2>{{record.title}}</h2>
         <p>Published: {{record.pub}}, author = {{record.author}}</p>
+        <a href="{{ record.get_absolute_url }}">Here is a link</a>
+
     {% endfor %}
 {% endblock %}

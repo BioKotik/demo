@@ -9,4 +9,5 @@ urlpatterns = [
          views.detailed_view,
          name='detailed_view'),
     path('<int:record_id>/send/', views.send_email, name='send_email'),
+    path('create/', views.create_form, name='create_form')
 ]

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Create new record{% endblock %}
+{% block body %}
+    <form action="." method = "POST">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" value="Create New Record">
+    </form>
+{% endblock %}

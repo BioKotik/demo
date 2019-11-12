@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from feed.models import Record
-from feed.forms import SendEmailForm
+from feed.forms import SendEmailForm, RecordForm
 from django.core.mail import send_mail
 from django.views.generic import ListView
+
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -48,3 +50,19 @@ def send_email(request, record_id):
                                          'form': form,
                                          'sent': sent},
                   )
+
+
+def create_form(request):
+    if request.method == "POST":
+        record_form = RecordForm(data=request.POST)
+        if record_form.is_valid():
+            new_record = record_form.save(commit=False)
+            new_record.author = User.objects.first()
+            new_record.slug = new_record.title.replace(' ', '')
+            new_record.save()
+            return render(request,
+                          'detailed.html',
+                          {'record': new_record})
+
+    record_form = RecordForm()
+    return render(request, "new_rec.html", {"form": record_form})
